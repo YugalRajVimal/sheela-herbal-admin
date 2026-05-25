@@ -125,8 +125,13 @@ export default function ProductList() {
                   <td className="table-cell">
                     <div className="flex items-center gap-3">
                       {p.images?.[0] && (
-                        <img src={p.images[0]} alt={p.name} className="w-10 h-10 rounded-lg object-cover border border-gray-100" />
+                        <img
+                          src={`${import.meta.env.VITE_UPLOAD_URL?.replace(/\/$/, '') || ''}/${p.images[0].replace(/^\//, '')}`}
+                          alt={p.name}
+                          className="w-10 h-10 rounded-lg object-cover border border-gray-100"
+                        />
                       )}
+                
                       <div>
                         <p className="font-semibold text-gray-900 text-sm">{p.name}</p>
                         <p className="text-xs text-gray-400">{p.slug}</p>

@@ -110,8 +110,13 @@ export default function OrderDetail() {
                     <td className="table-cell">
                       <div className="flex items-center gap-3">
                         {item.image && (
-                          <img src={item.image} alt={item.name} className="w-10 h-10 rounded-lg object-cover border border-gray-100" />
+                          <img
+                            src={`${import.meta.env.VITE_UPLOAD_URL?.replace(/\/$/, '') || ''}/${item.image.replace(/^\//, '')}`}
+                            alt={item.name}
+                            className="w-10 h-10 rounded-lg object-cover border border-gray-100"
+                          />
                         )}
+                  
                         <p className="font-medium text-sm">{item.name}</p>
                       </div>
                     </td>
